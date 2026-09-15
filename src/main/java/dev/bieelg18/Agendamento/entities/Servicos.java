@@ -27,7 +27,6 @@ public class Servicos {
     @Column(nullable = false)
     private TipoServico servico;
 
-    @OneToMany(mappedBy = "preco")
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal preco;
 
