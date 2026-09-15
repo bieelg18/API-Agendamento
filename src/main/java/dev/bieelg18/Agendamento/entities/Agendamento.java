@@ -1,5 +1,6 @@
 package dev.bieelg18.Agendamento.entities;
 
+import dev.bieelg18.Agendamento.enums.StatusAgendamento;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,5 +37,9 @@ public class Agendamento {
 
     @Column(nullable = false)
     private LocalDateTime data;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StatusAgendamento status;
 
 }
