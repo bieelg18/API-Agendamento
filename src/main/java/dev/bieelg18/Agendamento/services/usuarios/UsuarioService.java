@@ -91,5 +91,13 @@ public class UsuarioService {
         usuarioRepository.delete(usuario);
     }
 
+    //Método para listar usuários pela permissão
+    public List<ListarDadosUsuarioDTO> listarPermissao(){
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        return usuarios.stream()
+                .map(listarDadosUsuarioMapper::toDTO)
+                .toList();
+    }
+
 
 }
