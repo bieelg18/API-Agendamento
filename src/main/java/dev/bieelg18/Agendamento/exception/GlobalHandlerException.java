@@ -24,4 +24,12 @@ public class GlobalHandlerException {
                 .body(exception.getMessage());
     }
 
+    @ExceptionHandler(StatusIncorretoException.class)
+    public ResponseEntity<String> tratarStatusIncorreto(
+            StatusIncorretoException exception
+    ){
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(exception.getMessage());
+    }
+
 }
