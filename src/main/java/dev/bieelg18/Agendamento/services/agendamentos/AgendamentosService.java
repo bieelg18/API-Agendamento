@@ -97,11 +97,25 @@ public class AgendamentosService {
     }
 
     //Método para alterar o status de um agendamento
-    public ListarAgendamentoUsuarioDTO alterarStatus(Integer id){
+    public ListarAgendamentoUsuarioDTO alterarStatus(Integer id, Authentication authentication){
+
+        String email = authentication.getName();
+        Usuario profissional = usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new RecursoNaoEncontradoException(
+                        "Profissional não encontrado"
+                ));
+
         Agendamento agendamento = agendamentoRepository.findById(id)
                 .orElseThrow(() -> new RecursoNaoEncontradoException(
                         "Agendamento com o ID " + id + " não encontrado"
                 ));
+
+        if (!agendamento.getProfissional().getId().equals(profissional.getId())){
+            throw new PermissaoInvalidaException(
+                    "Você não possui permissão para alterar este agendamento"
+            );
+        }
+
         if (agendamento.getStatus() != StatusAgendamento.AGENDADO){
             throw new StatusIncorretoException(
                     "O agendamento já está concluído"
