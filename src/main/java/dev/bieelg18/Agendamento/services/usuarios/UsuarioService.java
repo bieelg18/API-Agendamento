@@ -5,6 +5,7 @@ import dev.bieelg18.Agendamento.dtos.usuarios.EditarDadosUsuarioDTO;
 import dev.bieelg18.Agendamento.dtos.usuarios.EditarPermissaoDTO;
 import dev.bieelg18.Agendamento.dtos.usuarios.ListarDadosUsuarioDTO;
 import dev.bieelg18.Agendamento.entities.Usuario;
+import dev.bieelg18.Agendamento.enums.Permissao;
 import dev.bieelg18.Agendamento.exception.RecursoNaoEncontradoException;
 import dev.bieelg18.Agendamento.mappers.usuario.CriarUsuarioMapper;
 import dev.bieelg18.Agendamento.mappers.usuario.ListarDadosUsuarioMapper;
@@ -92,8 +93,8 @@ public class UsuarioService {
     }
 
     //Método para listar usuários pela permissão
-    public List<ListarDadosUsuarioDTO> listarPermissao(){
-        List<Usuario> usuarios = usuarioRepository.findAll();
+    public List<ListarDadosUsuarioDTO> listarPermissao(Permissao permissao){
+        List<Usuario> usuarios = usuarioRepository.findByPermissao(permissao);
         return usuarios.stream()
                 .map(listarDadosUsuarioMapper::toDTO)
                 .toList();
