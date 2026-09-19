@@ -2,6 +2,7 @@ package dev.bieelg18.Agendamento.repositories;
 
 import dev.bieelg18.Agendamento.entities.Agendamento;
 import dev.bieelg18.Agendamento.entities.Servicos;
+import dev.bieelg18.Agendamento.entities.Usuario;
 import dev.bieelg18.Agendamento.enums.StatusAgendamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -15,5 +16,7 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Intege
     List<Agendamento> findByData(LocalDateTime data);
 
     List<Agendamento> findByServico(Servicos servico);
+
+    List<Agendamento> findByProfissional(Usuario profissional);
 
 }
