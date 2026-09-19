@@ -19,4 +19,6 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Intege
 
     List<Agendamento> findByProfissional(Usuario profissional);
 
+    List<Agendamento> findByCliente(Usuario cliente);
+
 }
