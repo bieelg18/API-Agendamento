@@ -32,4 +32,12 @@ public class GlobalHandlerException {
                 .body(exception.getMessage());
     }
 
+    @ExceptionHandler(PermissaoInvalidaException.class)
+    public ResponseEntity<String> tratarPermissaoInvalida(
+            PermissaoInvalidaException exception
+    ){
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(exception.getMessage());
+    }
+
 }
