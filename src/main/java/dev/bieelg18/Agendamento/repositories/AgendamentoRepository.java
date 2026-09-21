@@ -13,10 +13,6 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Intege
 
     List<Agendamento> findByStatus(StatusAgendamento status);
 
-    List<Agendamento> findByData(LocalDateTime data);
-
-    List<Agendamento> findByServico(Servicos servico);
-
     List<Agendamento> findByProfissional(Usuario profissional);
 
     List<Agendamento> findByCliente(Usuario cliente);

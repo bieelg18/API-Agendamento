@@ -168,5 +168,13 @@ public class AgendamentosService {
         agendamentoRepository.delete(agendamento);
     }
 
+    //Método que vai listar os agendamentos pelo status
+    public List<ListarAgendamentoAdminDTO> agendamentoStatus(StatusAgendamento statusAgendamento){
+        List<Agendamento> agendamentos = agendamentoRepository.findByStatus(statusAgendamento);
+        return agendamentos.stream()
+                .map(listarAgendamentoAdminMapper::toDTO)
+                .toList();
+    }
+
 }
 

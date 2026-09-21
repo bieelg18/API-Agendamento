@@ -3,6 +3,7 @@ package dev.bieelg18.Agendamento.controllers.agendamentos;
 import dev.bieelg18.Agendamento.dtos.agendamento.CriarAgendamentoDTO;
 import dev.bieelg18.Agendamento.dtos.agendamento.ListarAgendamentoAdminDTO;
 import dev.bieelg18.Agendamento.dtos.agendamento.ListarAgendamentoUsuarioDTO;
+import dev.bieelg18.Agendamento.enums.StatusAgendamento;
 import dev.bieelg18.Agendamento.services.agendamentos.AgendamentosService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -46,6 +47,12 @@ public class AgendamentoController {
     @DeleteMapping("/{id}")
     public void deletarAgendamento(@PathVariable Integer id){
         agendamentosService.deletarAgendamento(id);
+    }
+
+    //Rota para listar os agendamentos pelo status
+    @GetMapping("/status")
+    public List<ListarAgendamentoAdminDTO> listarStatus(@RequestParam StatusAgendamento status){
+    return agendamentosService.agendamentoStatus(status);
     }
 
 }
