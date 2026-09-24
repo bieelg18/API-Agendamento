@@ -1,4 +1,4 @@
-package dev.bieelg18.Agendamento.services.agendamentos.usuarios;
+package dev.bieelg18.Agendamento.services.usuarios;
 
 import dev.bieelg18.Agendamento.dtos.usuarios.CriarUsuarioDTO;
 import dev.bieelg18.Agendamento.dtos.usuarios.EditarDadosUsuarioDTO;
@@ -10,7 +10,6 @@ import dev.bieelg18.Agendamento.exception.RecursoNaoEncontradoException;
 import dev.bieelg18.Agendamento.mappers.usuario.CriarUsuarioMapper;
 import dev.bieelg18.Agendamento.mappers.usuario.ListarDadosUsuarioMapper;
 import dev.bieelg18.Agendamento.repositories.UsuarioRepository;
-import dev.bieelg18.Agendamento.services.usuarios.UsuarioService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
