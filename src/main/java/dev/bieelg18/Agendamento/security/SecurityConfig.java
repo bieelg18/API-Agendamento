@@ -51,6 +51,10 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/usuarios", "/auth/login")
                         .permitAll()
 
+                        //Rota de documentação, qualquer um pode acessar
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**")
+                        .permitAll()
+
                         //Rota POST para criar um novo agendamento
                                 .requestMatchers(HttpMethod.POST, "/agendamentos")
                                 .authenticated()
